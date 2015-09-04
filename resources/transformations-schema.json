@@ -1,0 +1,177 @@
+{
+
+    "type": "object",
+    "properties": {
+
+	"transformations": {
+
+	    "type": "array",
+	    "items": {
+		"anyOf": [
+		    {
+			"$ref": "#/definitions/addAction"
+		    },
+		    {
+			"$ref": "#/definitions/copyAction"
+		    },
+		    {
+			"$ref": "#/definitions/modifyAction"
+		    },
+		    {
+			"$ref": "#/definitions/removeAction"
+		    },
+		    {
+			"$ref": "#/definitions/setAction"
+		    }
+		]
+	    }
+
+	}
+	
+    },
+    "required": ["transformations"],
+    "definitions": {
+	
+	"addAction": {
+
+	    "type": "object",
+	    "properties": {
+
+		"action": {
+		    "type": "string",
+		    "pattern": "^add$"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"path": {
+		    "type": "string"
+		},
+		"content": {}
+
+	    },
+	    "required": [
+		"action",
+		"path",
+		"content"
+	    ]
+
+	},
+	"copyAction": {
+
+	    "type": "object",
+	    "properties": {
+
+		"action": {
+		    "type": "string",
+		    "pattern": "^copy$"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"sourcePath": {
+		    "type": "string"
+		},
+		"targetPath": {
+		    "type": "string"
+		}
+
+	    },
+	    "required": [
+		"action",
+		"sourcePath",
+		"targetPath"
+	    ]
+
+	},
+
+	"modifyAction": {
+
+	    "type": "object",
+	    "properties": {
+
+		"action": {
+		    "type": "string",
+		    "pattern": "^modify$"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"path": {
+		    "type": "string"
+		},
+		"pattern": {
+		    "type": "string"
+		},
+		"replacement": {
+		    "oneOf": [
+			{
+			    "type": "string"
+			},
+			{
+			    "type": "number"
+			}
+		    ]
+		}
+
+	    },
+	    "required": [
+		"action",
+		"path",
+		"pattern",
+		"replacement"
+	    ]
+
+	},
+	"removeAction": {
+
+	    "type": "object",
+	    "properties": {
+
+		"action": {
+		    "type": "string",
+		    "pattern": "^remove$"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"path": {
+		    "type": "string"
+		}
+
+	    },
+	    "required": [
+		"action",
+		"path"
+	    ]
+
+	},
+	"setAction": {
+
+	    "type": "object",
+	    "properties": {
+
+		"action": {
+		    "type": "string",
+		    "pattern": "^set$"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"path": {
+		    "type": "string"
+		},
+		"content": {}
+
+	    },
+	    "required": [
+		"action",
+		"path",
+		"content"
+	    ]
+
+	}
+
+    }
+
+}

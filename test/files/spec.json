@@ -1,0 +1,35 @@
+{
+
+    "transformations": [
+
+	{
+	    "action": "add",
+	    "path": "$.list",
+	    "content": {
+		"test": 0
+	    }
+	},
+	{
+	    "action": "copy",
+	    "sourcePath": "$.value",
+	    "targetPath": "$.object.test"
+	},
+	{
+	    "action": "modify",
+	    "path": "$.list[1]",
+	    "pattern": "e",
+	    "replacement": "oo"
+	},
+	{
+	    "action": "remove",
+	    "path": "$.list[2]"
+	},
+	{
+	    "action": "set",
+	    "path": "$.test",
+	    "content": "testing"
+	}
+
+    ]
+
+}
