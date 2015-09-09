@@ -7,7 +7,8 @@
 	"amdefine": "0.1.*",
 	"loglevel": "1.2.*",
 	"jsonpath": "0.1.*",
-	"json-schema-config": "https://github.com/NatLibFi/json-schema-config"
+	"json-schema-config": "https://github.com/NatLibFi/json-schema-config",
+	"es6-polyfills": "https://github.com/NatLibFi/es6-polyfills"
     },
     "devDependencies": {
 	"expect.js": "0.3.*",
