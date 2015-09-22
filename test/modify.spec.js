@@ -1,12 +1,50 @@
-if  (typeof define !== 'function') {
-    var define = require('amdefine')(module);
-}
+/**
+ *
+ * @licstart  The following is the entire license notice for the JavaScript code in this file. 
+ *
+ * Apply transformations to JSON objects using JSONPath
+ *
+ * Copyright (c) 2015 University Of Helsinki (The National Library Of Finland)
+ *
+ * This file is part of json-path-transformations 
+ *
+ * json-path-transformations is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @licend  The above is the entire license notice
+ * for the JavaScript code in this page.
+ *
+ **/
 
-define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path_transformer) {
+/* istanbul ignore next */
+(function (root, factory) {
 
     'use strict';
 
-    log.disableAll();
+    if (typeof define === 'function' && define.amd) {
+        define(['chai', '../lib/main'], factory);
+    } else if (typeof module === 'object' && module.exports) {
+        module.exports = factory(require('chai'), require('../lib/main'));
+    }
+
+}(this, factory));
+
+function factory(chai, json_path_transformer)
+{
+
+    'use strict';
+
+    var expect = chai.expect;
 
     describe('#modify()', function() {
 
@@ -21,7 +59,7 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    
 	    json_path_transformer.modify(data, path, pattern, replacement);
 	    
-	    expect(data.value).to.be('aac');
+	    expect(data.value).to.eql('aac');
 	    
 	});
 
@@ -36,7 +74,7 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    
 	    json_path_transformer.modify(data, path, pattern, replacement);
 	    
-	    expect(data.value).to.be(113);
+	    expect(data.value).to.eql(113);
 	    
 	});
 
@@ -51,7 +89,7 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    
 	    json_path_transformer.modify(data, path, pattern, replacement);
 	    
-	    expect(data.value).to.be('test');
+	    expect(data.value).to.eql('test');
 	    
 	});
 
@@ -66,7 +104,7 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    
 	    json_path_transformer.modify(data, path, pattern, replacement, 1);
 	    
-	    expect(data.value).to.be('1test3');
+	    expect(data.value).to.eql('1test3');
 	    
 	});
 
@@ -81,7 +119,7 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    
 	    json_path_transformer.modify(data, path, pattern, replacement, 1);
 	    
-	    expect(data.value).to.be(123);
+	    expect(data.value).to.eql(123);
 	    
 	});
 
@@ -96,7 +134,7 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    
 	    json_path_transformer.modify(data, path, pattern, replacement);
 	    
-	    expect(data.value).to.be('123');
+	    expect(data.value).to.eql('123');
 	    
 	});
 
@@ -109,9 +147,9 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    var pattern = '2';
 	    var replacement = 'test';
 	    
-	    expect(json_path_transformer.modify)
-		.withArgs(data, path, pattern, replacement)
-		.to.throwException(/^Replaced node value is not a number$/);
+	    expect(function() {
+		json_path_transformer.modify(data, path, pattern, replacement);
+	    }).to.throw(/^Replaced node value is not a number$/);
 	    
 	});
 
@@ -124,9 +162,9 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    var pattern = '2';
 	    var replacement = 'test';
 	    
-	    expect(json_path_transformer.modify)
-		.withArgs(data, path, pattern, replacement)
-		.to.throwException(/^Invalid node type: object$/);	    
+	    expect(function() {
+		json_path_transformer.modify(data, path, pattern, replacement);
+	    }).to.throw(/^Invalid node type: object$/);	    
 	    
 	});
 
@@ -139,11 +177,12 @@ define(['expect.js', 'loglevel', '../lib/main'], function(expect, log, json_path
 	    var pattern = '2';
 	    var replacement = 'test';
 	    
-	    expect(json_path_transformer.modify)
-		.withArgs(data, path, pattern, replacement)
-		.to.throwException(/^Invalid node type: object$/);
+	    expect(function() {
+		json_path_transformer.modify(data, path, pattern, replacement);
+	    }).to.throw(/^Invalid node type: object$/);
 
 	});
 
     });
-});
+
+}

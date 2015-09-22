@@ -15,7 +15,7 @@ module.exports = function(grunt)
 	},
 	mochaTest: {
 	    test: {
-		src: ['test/*spec.js']
+		src: ['test/*.spec.js']
 	    }
 	},
 	mocha_istanbul: {

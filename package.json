@@ -1,23 +1,46 @@
 {
     "name": "json-path-transformations",
+    "description": "Apply transformations to JSON objects using JSONPath",
+    "author": {
+	"name": "The National Library of Finland"
+    },
+    "keywords": [
+	"json",
+	"jsonpath",
+	"path",
+	"transform",
+	"modify",
+	"edit",
+	"alter",
+	"change",
+	"patch"
+    ],
+    "homepage": "https://github.com/NatLibFi/json-path-transformations",
+    "bugs": {
+	"url": "https://github.com/NatLibFi/json-path-transformations/issues"
+    },
+    "repository": {
+	"type": "git",
+	"url": "git@github.com:NatLibFi/json-path-transformations.git"
+    },
+    "license": " GPL-3.0",
     "version": "0.0.1",
-    "main": "lib/main",
-    "bin": "bin/json-path-transform",
+    "main": "./lib/main",
+    "bin": "./bin/json-path-transform",
     "dependencies": {
-	"amdefine": "0.1.*",
-	"loglevel": "1.2.*",
-	"jsonpath": "0.1.*",
-	"json-schema-config": "https://github.com/NatLibFi/json-schema-config",
+	"jjv": ">=1.0.2 <1.1o",
+	"jjve": "^0.5.0",
+	"jsonpath": "^0.2.0",
 	"es6-polyfills": "https://github.com/NatLibFi/es6-polyfills"
     },
     "devDependencies": {
-	"expect.js": "0.3.*",
-	"grunt": "0.4.*",
-	"jshint": "2.7.*",
-	"mocha": "2.2.*",
-	"istanbul": "0.3.*",
-	"grunt-contrib-jshint": "0.11.*",
-	"grunt-mocha-test": "0.12.*",
-	"grunt-mocha-istanbul": "2.4.*"
+	"chai": "^3.2.0",
+	"grunt": "^0.4.5",
+	"jshint": "^2.8.0",
+	"mocha": "^2.3.2",
+	"istanbul": "^0.3.20",
+	"grunt-contrib-jshint": "^0.11.3",
+	"grunt-mocha-test": "^0.12.7",
+	"grunt-mocha-istanbul": ">=3.0.1 <3.2"
     }
 }

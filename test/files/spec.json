@@ -1,7 +1,5 @@
 {
-
     "transformations": [
-
 	{
 	    "action": "add",
 	    "path": "$.list",
@@ -29,7 +27,6 @@
 	    "path": "$.test",
 	    "content": "testing"
 	}
-
     ]
 
 }
