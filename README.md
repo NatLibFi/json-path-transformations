@@ -6,7 +6,7 @@ This program uses JSONPath implementation from [dchester/jsonpath](https://githu
      
 ## What about JSON Patch?
 
-[JSON Patch](http://jsonpatch.com/) uses [JSON Pointer](https://tools.ietf.org/html/rfc6901) instead of JSONPath. JSON Pointer doesn't support script expressions or regular expressions (Regular expressions can be used in JSONPath with script expressions).
+[JSON Patch](http://jsonpatch.com/) is a specification which defines a syntax to patch JSON documents using [JSON Pointer](https://tools.ietf.org/html/rfc6901) instead of JSONPath. JSON Pointer doesn't support script expressions or regular expressions (Regular expressions can be used in JSONPath with script expressions).
 
 Then again, script expressions aren't entirely a good thing since implementations in languages other than Javascript must evaluate non-natively. Using alternative specifications like [JMESPath](http://jmespath.org/) might be more feasible.
 
