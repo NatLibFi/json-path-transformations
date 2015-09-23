@@ -19,7 +19,7 @@ The module returns an object which has the following methods:
 * **copy** (*target_object*, *source_path*, *target_path*, *append*): Copy *source_path* at *target_object* to *target_path*. If *append* is defined, *content* will be appended instead of replacing possibly existing data.
 * **modify** (*target_object*, *path*, *pattern*, *replacement*, *convert*): Modify *path* at *target_object* with regular expression replacement. Works only on strings and numbers. Modified property becomes string by default unless *convert* is defined.
 * **remove** (*target_object*, *path*): Removes data at *path* from *target_object*.
-* **process** (*target_object*, *spec*): Processes *target_object* as defined in *spec*. See [Transforming objects with transformation specifications](#Transforming objects with transformation specifications).
+* **process** (*target_object*, *spec*): Processes *target_object* as defined in *spec*. See [Transforming objects with transformation specifications](#transforming-objects-with-transformation-specifications).
 
 ### AMD
 
