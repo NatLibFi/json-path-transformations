@@ -36,7 +36,15 @@
 
 	    "type": "object",
 	    "properties": {
-
+		"name": {
+		    "type": "string"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"disabled": {
+		    "type": "boolean"
+		},
 		"action": {
 		    "type": "string",
 		    "pattern": "^add$"
@@ -61,7 +69,15 @@
 
 	    "type": "object",
 	    "properties": {
-
+		"name": {
+		    "type": "string"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"disabled": {
+		    "type": "boolean"
+		},
 		"action": {
 		    "type": "string",
 		    "pattern": "^copy$"
@@ -75,21 +91,27 @@
 		"targetPath": {
 		    "type": "string"
 		}
-
 	    },
 	    "required": [
 		"action",
 		"sourcePath",
 		"targetPath"
 	    ]
-
 	},
 
 	"modifyAction": {
 
 	    "type": "object",
 	    "properties": {
-
+		"name": {
+		    "type": "string"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"disabled": {
+		    "type": "boolean"
+		},
 		"action": {
 		    "type": "string",
 		    "pattern": "^modify$"
@@ -113,7 +135,6 @@
 			}
 		    ]
 		}
-
 	    },
 	    "required": [
 		"action",
@@ -127,7 +148,15 @@
 
 	    "type": "object",
 	    "properties": {
-
+		"name": {
+		    "type": "string"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"disabled": {
+		    "type": "boolean"
+		},
 		"action": {
 		    "type": "string",
 		    "pattern": "^remove$"
@@ -138,7 +167,6 @@
 		"path": {
 		    "type": "string"
 		}
-
 	    },
 	    "required": [
 		"action",
@@ -150,7 +178,15 @@
 
 	    "type": "object",
 	    "properties": {
-
+		"name": {
+		    "type": "string"
+		},
+		"description": {
+		    "type": "string"
+		},
+		"disabled": {
+		    "type": "boolean"
+		},
 		"action": {
 		    "type": "string",
 		    "pattern": "^set$"
@@ -162,7 +198,6 @@
 		    "type": "string"
 		},
 		"content": {}
-
 	    },
 	    "required": [
 		"action",

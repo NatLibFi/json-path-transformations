@@ -88,6 +88,7 @@ function factory(chai, json_path_transformer)
 	it('Should have data modified as expected');
 	it('Should have values removed as expected');
 	it('Should have values set as expected');
+	it('Should skip transformations that are disabled');
 
     });
 
