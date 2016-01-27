@@ -1,5 +1,7 @@
 # JSONPath Transformations
 
+**IN DEVELOPMENT**
+
 Apply transformations to JSON objects using [JSONPath](http://goessner.net/articles/JsonPath/).
 
 This program uses JSONPath implementation from [dchester/jsonpath](https://github.com/dchester/jsonpath).
