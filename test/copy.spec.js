@@ -4,7 +4,7 @@
  *
  * Apply transformations to JSON objects using JSONPath
  *
- * Copyright (c) 2015 University Of Helsinki (The National Library Of Finland)
+ * Copyright (c) 2015-2016 University Of Helsinki (The National Library Of Finland)
  *
  * This file is part of json-path-transformations 
  *
@@ -15,7 +15,7 @@
  *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
@@ -29,83 +29,83 @@
 /* istanbul ignore next */
 (function (root, factory) {
 
-    'use strict';
+  'use strict';
 
-    if (typeof define === 'function' && define.amd) {
-        define(['chai', '../lib/main'], factory);
-    } else if (typeof module === 'object' && module.exports) {
-        module.exports = factory(require('chai'), require('../lib/main'));
-    }
+  if (typeof define === 'function' && define.amd) {
+    define(['chai', '../lib/main'], factory);
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory(require('chai'), require('../lib/main'));
+  }
 
 }(this, factory));
 
 function factory(chai, json_path_transformer)
 {
 
-    'use strict';
+  'use strict';
 
-    var expect = chai.expect;
+  var expect = chai.expect;
 
-    describe('#copy()', function() {
+  describe('#copy()', function() {
 
-	it('Should copy string to an existing property', function() {
-	    
-	    var data = {
-		'props': {
+    it('Should copy string to an existing property', function() {
+      
+      var data = {
+        'props': {
 
-		    'value': 'abc'
+          'value': 'abc'
 
-		},
-		'list': [
-		    {
-			'index': 0,
-			'value': 'a'
-		    },
-		    {
-			'index': 1,
-			'value': 'b'
-		    }
-		]
-		
-	    };
-	    var source_path = "$.props.value";
-	    var target_path = "$.list[?(@.index == 1)].value";
-	    
-	    json_path_transformer.copy(data, source_path, target_path);
-	    
-	    expect(data.list.length).to.eql(2);
-	    expect(data.list[1]).to.have.property('value');
-	    expect(data.list[1].value).to.eql('abc');
-	    
-	});
-	
-	it('Should do nothing because attempting copying from a non-existant path', function() {
-
-	    var data = {
-		'props': {},
-		'list': [
-		    {
-			'index': 0,
-			'value': 'a'
-		    },
-		    {
-			'index': 1,
-			'value': 'b'
-		    }
-		]
-		
-	    };
-	    var source_path = "$.props.value";
-	    var target_path = "$.list[?(@.index == 1)].value";
-	    
-	    json_path_transformer.copy(data, source_path, target_path);
-	    
-	    expect(data.list.length).to.eql(2);
-	    expect(data.list[1]).to.have.property('value');
-	    expect(data.list[1].value).to.eql('b');
-	    
-	});
-
+        },
+        'list': [
+          {
+            'index': 0,
+            'value': 'a'
+          },
+          {
+            'index': 1,
+            'value': 'b'
+          }
+        ]
+        
+      };
+      var source_path = "$.props.value";
+      var target_path = "$.list[?(@.index == 1)].value";
+      
+      json_path_transformer.copy(data, source_path, target_path);
+      
+      expect(data.list.length).to.eql(2);
+      expect(data.list[1]).to.have.property('value');
+      expect(data.list[1].value).to.eql('abc');
+      
     });
+    
+    it('Should do nothing because attempting copying from a non-existant path', function() {
+
+      var data = {
+        'props': {},
+        'list': [
+          {
+            'index': 0,
+            'value': 'a'
+          },
+          {
+            'index': 1,
+            'value': 'b'
+          }
+        ]
+        
+      };
+      var source_path = "$.props.value";
+      var target_path = "$.list[?(@.index == 1)].value";
+      
+      json_path_transformer.copy(data, source_path, target_path);
+      
+      expect(data.list.length).to.eql(2);
+      expect(data.list[1]).to.have.property('value');
+      expect(data.list[1].value).to.eql('b');
+      
+    });
+
+  });
 
 }

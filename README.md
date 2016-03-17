@@ -1,4 +1,4 @@
-# JSONPath Transformations
+# JSONPath Transformations [![Build Status](https://travis-ci.org/NatLibFi/record-loader-prototypes.svg)](https://travis-ci.org/NatLibFi/json-path-transformations) [![Test Coverage](https://codeclimate.com/github/NatLibFi/json-path-transformations/badges/coverage.svg)](https://codeclimate.com/github/NatLibFi/json-path-transformations/coverage)
 
 **IN DEVELOPMENT**
 
@@ -52,6 +52,6 @@ Transformations specification is an object with a single property **transformati
 
 ## License and copyright
 
-Copyright (c) 2015 University Of Helsinki (The National Library Of Finland)
+Copyright (c) 2015-2106 **University Of Helsinki (The National Library Of Finland)**
 
 This project's source code is licensed under the terms of **GNU General Public License Version 3**.

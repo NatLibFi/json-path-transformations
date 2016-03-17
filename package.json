@@ -1,46 +1,59 @@
 {
-    "name": "json-path-transformations",
-    "description": "Apply transformations to JSON objects using JSONPath",
-    "author": {
-	"name": "The National Library of Finland"
-    },
-    "keywords": [
-	"json",
-	"jsonpath",
-	"path",
-	"transform",
-	"modify",
-	"edit",
-	"alter",
-	"change",
-	"patch"
-    ],
-    "homepage": "https://github.com/NatLibFi/json-path-transformations",
-    "bugs": {
-	"url": "https://github.com/NatLibFi/json-path-transformations/issues"
-    },
-    "repository": {
-	"type": "git",
-	"url": "git@github.com:NatLibFi/json-path-transformations.git"
-    },
-    "license": " GPL-3.0",
-    "version": "0.0.1",
-    "main": "./lib/main",
-    "bin": "./bin/json-path-transform",
-    "dependencies": {
-	"jjv": ">=1.0.2 <1.1",
-	"jjve": "^0.5.0",
-	"jsonpath": "^0.2.0",
-	"es6-polyfills": "https://github.com/NatLibFi/es6-polyfills"
-    },
-    "devDependencies": {
-	"chai": "^3.2.0",
-	"grunt": "^0.4.5",
-	"jshint": "^2.8.0",
-	"mocha": "^2.3.2",
-	"istanbul": "^0.3.20",
-	"grunt-contrib-jshint": "^0.11.3",
-	"grunt-mocha-test": "^0.12.7",
-	"grunt-mocha-istanbul": ">=3.0.1 <3.2"
-    }
+  "name": "json-path-transformations",
+  "description": "Apply transformations to JSON objects using JSONPath",
+  "author": {
+    "name": "The National Library of Finland"
+  },
+  "keywords": [
+    "json",
+    "jsonpath",
+    "path",
+    "transform",
+    "modify",
+    "edit",
+    "alter",
+    "change",
+    "patch"
+  ],
+  "homepage": "https://github.com/NatLibFi/json-path-transformations",
+  "bugs": {
+    "url": "https://github.com/NatLibFi/json-path-transformations/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NatLibFi/json-path-transformations.git"
+  },
+  "license": " GPL-3.0",
+  "version": "0.0.1",
+  "main": "./lib/main",
+  "bin": "./bin/json-path-transform",
+  "scripts": {
+    "lint": "jshint .",
+    "test-nodejs": "mocha test/*.spec.js test/nodejs/*.spec.js",
+    "test-browser": "karma start",
+    "test": "npm run test-nodejs && npm run test-browser",
+    "coverage": "istanbul cover _mocha",
+    "check": "npm run lint && npm run test && npm run coverage",
+    "travisci": "npm run check",
+    "publish-to-npm": "npm install && npm run check && npm publish"
+  },
+  "dependencies": {
+    "jjv": ">=1.0.2 <1.1",
+    "jjve": "^0.5.0",
+    "jsonpath": "^0.2.0",
+    "es6-polyfills": "^1.0.1",
+    "requirejs-plugins": "^1.0.2"
+  },
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "jshint": "^2.8.0",
+    "mocha": "^2.3.2",
+    "istanbul": "^0.3.20",
+    "karma": "^0.13.19",
+    "karma-mocha": "^0.2.1",
+    "karma-requirejs": "^0.2.3",
+    "karma-phantomjs-launcher": "^0.2.3",
+    "phantomjs-prebuilt": "^2.1.5",
+    "codeclimate-test-reporter": "^0.1.1"
+  }
 }
