@@ -4,7 +4,7 @@ module.exports = function(config) {
     frameworks: ['mocha', 'requirejs'],
     browsers: ['PhantomJS'],
     preprocessors: {
-      'test/browser/main.js': 'requirejs'
+      'test/browser-main.js': 'requirejs'
     },
     requirejsPreprocessor: {
       config: {
@@ -16,7 +16,7 @@ module.exports = function(config) {
       testRegexp: '^/base/test/[^/].+\.spec\.js$'
     },
     files: [
-      'test/browser/main.js',
+      'test/browser-main.js',
       {
         pattern: 'resources/**/*.json',
         included: false

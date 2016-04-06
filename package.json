@@ -36,7 +36,7 @@
     "check": "npm run lint && npm run cover",
     "travisci": "npm run check",
     "publish-to-npm": "npm install && npm run check && npm publish",
-    "generate-requirejs-config": "requirejs-configurator --npm --include-dev-deps > test/browser/main.js"
+    "generate-requirejs-config": "requirejs-configurator --npm --include-dev-deps > test/browser-main.js"
   },
   "dependencies": {
     "jjv": ">=1.0.2 <1.1",
