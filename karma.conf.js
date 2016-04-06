@@ -3,6 +3,18 @@ module.exports = function(config) {
     singleRun: true,
     frameworks: ['mocha', 'requirejs'],
     browsers: ['PhantomJS'],
+    preprocessors: {
+      'test/browser/main.js': 'requirejs'
+    },
+    requirejsPreprocessor: {
+      config: {
+        baseUrl: '/base',
+        paths: {
+          text: 'node_modules/requirejs-plugins/lib/text'
+        }
+      },
+      testRegexp: '^/base/test/[^/].+\.spec\.js$'
+    },
     files: [
       'test/browser/main.js',
       {
@@ -10,7 +22,7 @@ module.exports = function(config) {
         included: false
       },
       {
-        pattern: 'test/**/*.spec.js',
+        pattern: 'test/*.spec.js',
         included: false
       },
       {
